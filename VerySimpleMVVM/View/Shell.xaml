@@ -1,0 +1,50 @@
+﻿<Window x:Class="VerySimpleMVVM.View.Shell"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VerySimpleMVVM.View"
+        xmlns:viewmodel="clr-namespace:VerySimpleMVVM.ViewModel"
+        mc:Ignorable="d"
+        Title="Shell" Height="450" Width="800">
+
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type viewmodel:ViewAViewModel}">
+            <local:ViewA/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewmodel:ViewBViewModel}">
+            <local:ViewB />
+        </DataTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel 
+            Orientation="Horizontal"
+            Grid.Row="0">
+
+            <Button 
+                Command="{Binding ViewACommand}"
+                Width="100"
+                Content="View A"/>
+
+
+            <Button 
+                Command="{Binding ViewBCommand}"
+                Margin="1 0 0 0"
+                Width="100"
+                Content="View B"/>
+        </StackPanel>
+
+
+        <ContentControl
+            Grid.Row="1"
+            Content="{Binding CurrentViewModel}"/>
+
+               
+    </Grid>
+</Window>

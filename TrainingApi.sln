@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainingApi", "TrainingApi\TrainingApi.csproj", "{C737A298-E9E5-4067-A7B8-0441B69669F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMSDataAccess", "IMSDataAccess\IMSDataAccess.csproj", "{0B2667A1-4BA9-4D2D-A613-23A6371E185A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C737A298-E9E5-4067-A7B8-0441B69669F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C737A298-E9E5-4067-A7B8-0441B69669F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C737A298-E9E5-4067-A7B8-0441B69669F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C737A298-E9E5-4067-A7B8-0441B69669F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B2667A1-4BA9-4D2D-A613-23A6371E185A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B2667A1-4BA9-4D2D-A613-23A6371E185A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B2667A1-4BA9-4D2D-A613-23A6371E185A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B2667A1-4BA9-4D2D-A613-23A6371E185A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92C1EAB7-8F29-4CE7-B4BA-0B43A3B7C949}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,221 @@
+﻿<Window x:Class="WPFNavigationDesign.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFNavigationDesign"
+        mc:Ignorable="d" Height="600" Width="1080" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        ResizeMode="NoResize" FontFamily="Segeo UI" WindowState="Maximized" 
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None"  Foreground="White">
+    <Window.Resources>
+        <Storyboard
+           x:Key="MenuOpen">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" 
+                                           Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="60" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="200" />
+
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard
+           x:Key="MenuClose">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" 
+                                           Storyboard.TargetName="GridMenu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="200" />
+                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="60" />
+
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnOpenMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuOpen}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnCloseMenu">
+            <BeginStoryboard Storyboard="{StaticResource MenuClose}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
+    <Grid  >
+
+        <ContentControl Margin="55,45,0,0" Name="gControls"/>
+        <Grid Height="45" VerticalAlignment="Top" Background="#FF1B72AE">
+           <!-- <Grid Height="45" HorizontalAlignment="Left">
+                <StackPanel Orientation="Vertical" 
+                            HorizontalAlignment="Left" 
+                                x:Name="stackInfo">
+                    <Ellipse Margin="5 3 5 0"   Height="40" Width="60">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="Images\sato_whitebg.jpg"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </StackPanel>
+            </Grid> -->
+            
+            <Grid Height="45" HorizontalAlignment="Left" 
+                  >
+
+                <Button Width="60" Height="60" x:Name="btnCloseMenu"
+                            Background="{x:Null}" BorderBrush="{x:Null}" 
+                            VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnCloseMenu_Click">
+                    <materialDesign:PackIcon  Foreground="White" Kind="ArrowLeft" 
+                                               Width="35" Height="35"/>
+                </Button>
+
+                <Button Width="60" Height="60" x:Name="btnOpenMenu"
+                            Background="{x:Null}" BorderBrush="{x:Null}" 
+                            VerticalAlignment="Center" HorizontalAlignment="Center" Click="btnOpenMenu_Click">
+                    <materialDesign:PackIcon Foreground="White" Kind="Menu" 
+                                                 Width="35" Height="35" />
+                </Button>
+
+            </Grid>
+
+            <TextBlock Text="Dashboard" HorizontalAlignment="Center"
+                       VerticalAlignment="Center" FontSize="22" Name="lblIndicator" />
+            
+            
+            
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Grid Height="45" HorizontalAlignment="Left">
+                <StackPanel Orientation="Vertical" 
+                            HorizontalAlignment="Left" 
+                                x:Name="stackInfo">
+                    <Ellipse Margin="0 0 10 0" Height="40" Width="50">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="Images\lee.png"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </StackPanel>
+                </Grid> 
+                
+                <StackPanel VerticalAlignment="Center"  Orientation="Vertical" HorizontalAlignment="Right">
+                    <TextBlock Text="Roland Villalobos Bitos Jr." VerticalAlignment="Center" FontSize="15"/>
+                    <TextBlock Text="Software Engineer" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="10"/>
+                </StackPanel>
+                
+                <materialDesign:PopupBox  Margin="10" PlacementMode="BottomAndAlignRightEdges"
+                                          StaysOpen="False">
+                    <StackPanel Width="150">
+                        <ListView Name="OptionList" 
+                            ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                                 >
+                            <ListViewItem Height="50" Name="btnAccount" Selected="btnAccount_Selected">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Margin="4" Kind="Account" Width="20" Height="20" 
+                                                     VerticalAlignment="Center"/>
+                                    <TextBlock Text="Account" VerticalAlignment="Center" Margin="10 10" />
+                                </StackPanel>
+                            </ListViewItem>
+
+                            <ListViewItem Height="50" Name="btnSettings" Selected="btnSettings_Selected">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Margin="4" Kind="Settings" Width="20" Height="20" 
+                                                     VerticalAlignment="Center"/>
+                                    <TextBlock Text="Settings" VerticalAlignment="Center" Margin="10 10" />
+                                </StackPanel>
+                            </ListViewItem>
+
+                            <ListViewItem Height="50" Name="btnHelp" Selected="btnHelp_Selected">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Margin="4" Kind="Help" Width="20" Height="20" 
+                                                     VerticalAlignment="Center"/>
+                                    <TextBlock Text="Help" VerticalAlignment="Center" Margin="10 10" />
+                                </StackPanel>
+                            </ListViewItem>
+
+                            <Separator/>
+                            <ListViewItem Height="50" Name="btnLogout" Selected="btnLogout_Selected">
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Margin="4" Kind="Logout" Width="20" Height="20" 
+                                                     VerticalAlignment="Center"/>
+                                    <TextBlock Text="Logout" VerticalAlignment="Center" Margin="10 10" />
+                                </StackPanel>
+                            </ListViewItem>
+                            
+                            <!-- 
+                            <Button x:Name="btnLogout" Content="Logout" Click="btnLogout_Click"/>
+                            -->
+                        </ListView>
+                       <!-- <Button Content="Account"/>
+                        <Button Content="Settings"/>
+                        <Button Content="Help"/> -->
+                       
+                    </StackPanel>
+                </materialDesign:PopupBox>
+            </StackPanel>
+           
+           
+        </Grid>
+        <Grid x:Name="GridMenu"
+              Width="55" HorizontalAlignment="Left" Background="#FF0C2E5F" Margin="0,45,0,0">
+            <StackPanel Margin="0,25,0,0">
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground="#FFF">
+                    <ListViewItem Height="60" Name="btnHome"
+                                 Selected="btnHome_Selected">
+                        <StackPanel Orientation="Horizontal" >
+                            <materialDesign:PackIcon Margin="4" Kind="ViewDashboard" Width="30" Height="30" 
+                                                     VerticalAlignment="Center"/>
+                            <TextBlock Text="Home" VerticalAlignment="Center" Margin="10 10" />
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Height="60" Name="btnTracking" Selected="btnTracking_Selected">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Margin="4" Kind="Qrcode" Width="30" Height="30" 
+                                                     VerticalAlignment="Center"/>
+                            <TextBlock Text="Scan History" VerticalAlignment="Center" Margin="10 10" />
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Height="60" Name="btnInventoryMan" Selected="btnInventoryMan_Selected">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Margin="4" Kind="FileDocument" Width="30" Height="30" 
+                                                     VerticalAlignment="Center"/>
+                            <TextBlock Text="Initial Records" VerticalAlignment="Center" Margin="10 10" />
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Height="60" Name="btnRegister" Selected="btnRegister_Selected">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Margin="4" Kind="Database" Width="30" Height="30" 
+                                                     VerticalAlignment="Center"/>
+                            <TextBlock Text="Master Data" VerticalAlignment="Center" Margin="10 10" />
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Height="60" Name="btnAssetTransfer" Selected="btnAssetTransfer_Selected">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Margin="4" Kind="User" Width="30" Height="30" 
+                                                     VerticalAlignment="Center"/>
+                            <TextBlock Text="User Management" VerticalAlignment="Center" Margin="10 10" />
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Height="60" Name="btnAssetDisposal" Selected="btnAssetDisposal_Selected">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Margin="4" Kind="Schedule" Width="30" Height="30" 
+                                                     VerticalAlignment="Center"/>
+                            <TextBlock Text="Inventory Schedule" VerticalAlignment="Center" Margin="10 10" />
+                        </StackPanel>
+                    </ListViewItem>
+
+                    <ListViewItem Height="60" Name="btnAccountability" Selected="btnAccountability_Selected">
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon Margin="4" Kind="FileDocumentBoxCheck" Width="30" Height="30" 
+                                                     VerticalAlignment="Center"/>
+                            <TextBlock Text="Generate Report" VerticalAlignment="Center" Margin="10 10" />
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+            <StackPanel Visibility="Collapsed" VerticalAlignment="Bottom" Name="stackProgramVer">
+                <TextBlock Margin="5"  Text="Program Version: 1.0" FontFamily="Segoe UI"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,72 @@
+﻿<Window x:Class="SatoImsV1._1.ForexView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SatoImsV1._1"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             BorderBrush="Black"
+             BorderThickness=".5"
+             WindowStyle="None"
+             WindowStartupLocation="CenterScreen"
+             Background="GhostWhite"
+             ResizeMode="NoResize"
+             Title="ForexView"
+             Height="150"
+             Width="300"
+             >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="13*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3">
+            <materialDesign:Card Margin="5">
+                <StackPanel Orientation="Vertical" Margin="5,5,0,0" HorizontalAlignment="Center">
+                    <TextBlock Text="CURRENT USD VALUE:" HorizontalAlignment="Center"/>
+                    <TextBox Width="90" Text="{Binding InputForex, StringFormat=N2, FallbackValue=0.00}" TextAlignment="Center"/>
+                    <Button Background="#FF0C2E5F"
+                        BorderBrush="#FF0C2E5F" Margin="0,5,0,5"
+                        Command="{Binding saveForex}" 
+                        Height="25"
+                        Width="90"
+                        >
+                        <StackPanel Margin="-15, 0, 0, 0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
+
+                            <materialDesign:PackIcon Margin="0 0 5 0"
+                                                         Kind="ContentSave"
+                                                         VerticalAlignment="Center"
+                                                         Width="15"
+                                                         Height="15" />
+
+                            <TextBlock VerticalAlignment="Center"
+                                           Text="Save" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+            </materialDesign:Card>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2">
+            <Button Content="Close [x]"
+                    Foreground="Red"
+                    IsCancel="True"
+                    HorizontalAlignment="Right"
+                    Style="{StaticResource MaterialDesignFlatButton}" />
+        </Border>
+    </Grid>
+</Window>

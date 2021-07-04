@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockyIDMaker", "RockyIDMaker.csproj", "{35EEEED8-E8B1-404C-9FCE-3B19204A8094}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35EEEED8-E8B1-404C-9FCE-3B19204A8094}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35EEEED8-E8B1-404C-9FCE-3B19204A8094}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35EEEED8-E8B1-404C-9FCE-3B19204A8094}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35EEEED8-E8B1-404C-9FCE-3B19204A8094}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1A10A02B-64AC-49A4-A9F9-E917BC123A55}
+	EndGlobalSection
+EndGlobal

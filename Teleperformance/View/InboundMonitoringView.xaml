@@ -1,0 +1,167 @@
+﻿<UserControl x:Class="Teleperformance.View.InboundMonitoringView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Teleperformance.View"
+             mc:Ignorable="d"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="650"
+             d:DesignWidth="1220">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+
+        <Border Grid.Column="1"
+                Grid.Row="1">
+
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center">
+
+                <Button Background="#FF0C2E5F"
+                        BorderBrush="#FF0C2E5F"
+                        Height="auto"
+                        Width="auto"
+                        Margin="0 5 5 5"
+                        Command="{Binding Start}">
+
+                    <StackPanel Margin="-15, 0, 0, 0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+
+                        <materialDesign:PackIcon Margin="0 0 5 0"
+                                                 Kind="Restart"
+                                                 VerticalAlignment="Center"
+                                                 Width="25"
+                                                 Height="25" />
+
+                        <TextBlock VerticalAlignment="Center"
+                                   Text="Restart Reading" />
+
+                    </StackPanel>
+
+                </Button>
+
+
+                <Button Background="#900c3f"
+                        BorderBrush="#900c3f"
+                        Height="auto"
+                        Width="auto"
+                        
+                        Margin="0 5 5 5"
+                        Command="{Binding Stop}">
+
+                    <StackPanel Margin="-15, 0, 0, 0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal">
+
+                        <materialDesign:PackIcon Margin="0 0 5 0"
+                                                 Kind="Hand"
+                                                 VerticalAlignment="Center"
+                                                 Width="25"
+                                                 Height="25" />
+
+                        <TextBlock VerticalAlignment="Center"
+                                   Text="Stop Reading" />
+
+                    </StackPanel>
+
+                </Button>
+            </StackPanel>
+
+        </Border>
+        
+
+        <Border
+            Grid.Column="1"
+            Grid.Row="2">
+
+            <materialDesign:Card Height="55">
+                <StackPanel Orientation="Vertical">
+
+                    <TextBlock Text="Inbound Monitoring"
+                               FontSize="25"
+                               Margin="5 0 0 0" />
+
+                    <TextBlock Text="{Binding Status}"
+                               FontSize="15"
+                               Margin="5 0 0 0" />
+
+                </StackPanel>
+            </materialDesign:Card>
+
+        </Border>
+
+        <Border Grid.Column="1"
+                Grid.Row="3" Margin="0 5 0 0">
+
+            <materialDesign:Card Height="55"
+                                 Background="{Binding BackgroundColor}">
+                <StackPanel Orientation="Vertical">
+
+                    <TextBlock Text="{Binding IsFound}"
+                               FontSize="25"
+                               Margin="5 0 0 0" />
+
+                    <TextBlock Text="{Binding TagId}"
+                               FontSize="15"
+                               Margin="5 0 0 0" />
+
+                </StackPanel>
+            </materialDesign:Card>
+
+        </Border>
+
+        <Border Grid.Column="1"
+                Grid.Row="4"
+                Margin="0 5 0 0">
+
+            <materialDesign:Card Height="auto">
+
+                <StackPanel Orientation="Vertical">
+
+                    <TextBlock FontSize="15" Text="History"/>
+
+                    <DataGrid materialDesign:ScrollBarAssist.ThumbCornerRadius="15"
+                              materialDesign:ScrollBarAssist.ThumbWidth="20"
+                              Height="550"
+                              AutoGenerateColumns="False"
+                              ItemsSource="{Binding Path=RedTags,
+                            Mode=TwoWay,NotifyOnSourceUpdated=True,
+                            NotifyOnTargetUpdated=True}"
+                              IsReadOnly="True"
+                              Margin="0 5 0 0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Tag Number"
+                                                Binding="{Binding TagId}" />
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </StackPanel>
+                
+            </materialDesign:Card>
+
+        </Border>
+
+    </Grid>
+</UserControl>

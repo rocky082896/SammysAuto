@@ -1,0 +1,70 @@
+﻿<Window x:Class="SatoImsV1._1.View.PoReportView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SatoImsV1._1.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        xmlns:crv="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer" 
+        xmlns:r="clr-namespace:SatoImsV1._1.Reports"
+        Title="InvoiceReportView" 
+        ResizeMode="NoResize" 
+        WindowState="Maximized"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
+        >
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="450"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height ="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right">
+            <Button Content="Close [x]"
+                    Foreground="Red"
+                    IsCancel="True"
+                    HorizontalAlignment="Right"
+                    Style="{StaticResource MaterialDesignFlatButton}" />
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="Po Number" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                <ComboBox Width="200" Margin="10,0,0,0"/>
+                <Button Background="#FF0C2E5F"
+                        BorderBrush="#FF0C2E5F" Margin="10,0,0,0"
+                        Command="{Binding loadReport}"
+                        Height="30"
+                        >
+                    <StackPanel Margin="-15, 0, 0, 0"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Center"
+                                        Orientation="Horizontal">
+
+                        <materialDesign:PackIcon Margin="0 0 5 0"
+                                                         Kind="Reload"
+                                                         VerticalAlignment="Center"
+                                                         Width="25"
+                                                         Height="25" />
+
+                        <TextBlock VerticalAlignment="Center"
+                                           Text="Load Report" />
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            
+        </Border>
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" >
+            <crv:CrystalReportsViewer Height="700"
+                r:ReportSourceBehaviour.ReportSource="{Binding Path=DataContext.Report, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=FrameworkElement}}" ShowLogo="False" ToggleSidePanel="None" 
+                />
+        </Border>
+    </Grid>
+</Window>

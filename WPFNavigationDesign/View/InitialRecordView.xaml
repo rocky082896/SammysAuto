@@ -1,0 +1,140 @@
+﻿<UserControl x:Class="WPFNavigationDesign.View.InitialRecordView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFNavigationDesign.View"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             FontSize="13"
+             Foreground="Black">
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="145"/>
+                <ColumnDefinition Width="145"/>
+                <ColumnDefinition Width="145"/>
+                <ColumnDefinition Width="145"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="15"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="450"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition/>
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+
+            <Grid.Resources >
+                <Style TargetType="Border" >
+                    <Setter Property="Padding" Value="5,5,5,5" />
+                </Style>
+            </Grid.Resources>
+
+            <Rectangle Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="10"
+                       Grid.RowSpan="3" 
+                       Stroke="Black"/>
+           
+            <Border Grid.Row="1" Grid.Column="1">
+                <TextBlock Text="Search by:"/>
+            </Border>
+
+            <Border Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2">
+                <ComboBox />
+            </Border>
+
+            <Border Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2">
+                <TextBox materialDesign:HintAssist.Hint="Keyword" />
+            </Border>
+
+
+            <Border Grid.Row="2" Grid.Column="1">
+                <TextBlock Text="Search by:"/>
+            </Border>
+
+            <Border Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2">
+                <ComboBox />
+            </Border>
+
+            <Border Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2">
+                <TextBox materialDesign:HintAssist.Hint="Keyword" />
+            </Border>
+
+
+            <Border Grid.Row="3" Grid.Column="1">
+                <TextBlock Text="Search by:"/>
+            </Border>
+
+            <Border Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2">
+                <ComboBox />
+            </Border>
+
+            <Border Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2">
+                <TextBox materialDesign:HintAssist.Hint="Keyword" />
+            </Border>
+
+            <Border Grid.Row="3" Grid.Column="7" >
+                <Button Background="#FF1B72AE"
+                        FontSize="11"
+                        Height="25"
+                        Content="Download Template"/>
+            </Border>
+
+            <Border Grid.Row="3" Grid.Column="8" >
+                <Button Background="#FF1B72AE"
+                        FontSize="11"
+                        Height="25"
+                        Content="Manual Input"/>
+            </Border>
+
+            <Border Grid.Row="3" Grid.Column="9" >
+                <Button Background="#FF1B72AE"
+                        FontSize="11"
+                        Height="25"
+                        Content="Upload New"/>
+            </Border>
+
+            <Border Grid.Row="3" Grid.Column="10" >
+                <Button Background="#FF1B72AE"
+                        FontSize="11"
+                        Height="25"
+                        Content="Export as CSV"/>
+            </Border>
+
+            <Border Grid.Row="5" Grid.Column="1" >
+                <CheckBox Background="#FF1B72AE"
+                        FontSize="11"
+                        Height="25"
+                        Content="Display records"/>
+            </Border>
+
+            <Border Grid.Row="5" Grid.Column="2" >
+                <Button Height="25" Width="25" HorizontalAlignment="Left">
+                    <Button.Background>
+                        <ImageBrush ImageSource="/WPFNavigationDesign;component/Images/refresh.png"/>
+                    </Button.Background>
+                </Button>
+            </Border>
+
+            <Border Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="11" >
+                <DataGrid />
+            </Border>
+
+        </Grid>  
+    </Grid>
+</UserControl>

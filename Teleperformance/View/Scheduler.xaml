@@ -1,0 +1,43 @@
+﻿<Window x:Class="Teleperformance.View.Scheduler"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Teleperformance.View"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+        mc:Ignorable="d"
+        Title="Scheduler" Height="450" Width="800">
+    
+    <Grid>
+        <syncfusion:SfScheduler ViewType="TimelineMonth"
+                                ResourceGroupType="Resource"
+                                ItemsSource="{Binding Events}"
+                                ResourceCollection="{Binding Employees}">
+
+            <syncfusion:SfScheduler.TimelineViewSettings>
+                <syncfusion:TimelineViewSettings>
+                    <syncfusion:TimelineViewSettings.AppointmentTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Label Foreground="Black"
+                                       FontWeight="Bold"
+                                       Content="{Binding Subject}"
+                                       Grid.Row="0"
+                                       HorizontalContentAlignment="Center"
+                                       VerticalContentAlignment="Top" />
+                                <Border Background="{Binding AppointmentBackground}"
+                                        CornerRadius="5"
+                                        Height="10"
+                                        Width="10"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center" />
+                            </Grid>
+                        </DataTemplate>
+                    </syncfusion:TimelineViewSettings.AppointmentTemplate>
+                </syncfusion:TimelineViewSettings>
+            </syncfusion:SfScheduler.TimelineViewSettings>
+
+        </syncfusion:SfScheduler>
+    </Grid>
+    
+</Window>
